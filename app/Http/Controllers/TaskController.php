@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ResponsesBody;
 use App\Repositories\TaskRepo;
 use Illuminate\Http\Request;
 
@@ -35,8 +36,8 @@ class TaskController extends Controller
     public function getAll()
     {
         $tasks = $this->taskRepo->all();
-        $response = ['message' => "Todas las tareas", "data" => $tasks];
-        return response()->json($response, 200);
+        $response = ResponsesBody::responseSuccess("Todas las tareas", 200, $tasks);
+        return $response;
     }
 
     /**
@@ -51,8 +52,8 @@ class TaskController extends Controller
     {
         $description = $request->description;
         $task = $this->taskRepo->store($description);
-        $response = ['message' => "Has creado una nueva tarea", "data" => $task];
-        return response()->json($response, 201);
+        $response = ResponsesBody::responseSuccess("Todas las tareas", 201, []);
+        return $response;
     }
 
     /**
@@ -68,8 +69,8 @@ class TaskController extends Controller
     {
         $description = $request->description;
         $task = $this->taskRepo->update($id, $description);
-        $response = ['message' => "La tarea ha sido actualizada", "data" => $task];
-        return response()->json($response, 200);
+        $response = ResponsesBody::responseSuccess("La tarea ha sido actualizada", 200, []);
+        return $response;
     }
 
     /**
@@ -83,7 +84,7 @@ class TaskController extends Controller
     public function delete($id)
     {
         $task = $this->taskRepo->delete($id);
-        $response = ['message' => "La tarea ha sido eliminada", "data" => $task];
+        $response = ResponsesBody::responseSuccess("La tarea ha sido eliminada", 204, []);
         return response()->json($response, 200);
     }
 }
