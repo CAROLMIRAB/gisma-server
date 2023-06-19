@@ -10,6 +10,8 @@ class Task extends Model
 
     protected $table = 'tasks';
 
+    public $timestamps = false;
+
     /**
      * @var array $fillable
      */

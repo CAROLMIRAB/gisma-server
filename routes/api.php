@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,11 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('task', 'ApiController@getAll');
-Route::post('create-task', 'ApiController@create');
-Route::put('task/{id}', 'ApiController@update');
-Route::delete('task/{id}', 'ApiController@delete');
-
-/*Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});*/
+Route::get('tasks', 'TaskController@getAll')->name('all-task');
+Route::post('create', 'TaskController@create')->name('create-task');
+Route::put('task/{id}', 'TaskController@update')->name('update-task');
+Route::delete('task/{id}', 'TaskController@delete')->name('delete-task');

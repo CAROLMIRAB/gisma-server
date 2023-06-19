@@ -56,7 +56,7 @@ class TaskRepo
      */
     public function all()
     {
-        $task =  Task::orderBy('name')->get();
+        $task =  Task::orderBy('id', 'desc')->get();
         return $task;
     }
 }

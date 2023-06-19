@@ -2,7 +2,10 @@
 
 namespace App\Exceptions;
 
+use App\Classes\ResponsesBody;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -45,6 +48,17 @@ class Handler extends ExceptionHandler
     {
         $this->reportable(function (Throwable $e) {
             //
+        });
+
+        $this->renderable(function (NotFoundHttpException $e, $request) {
+            if ($request->wantsJson()) {
+                return ResponsesBody::responseError('No encontrado', 404, []);
+            }
+            return ResponsesBody::responseError('No encontrado', 404, []);
+        });
+
+        $this->renderable(function (MethodNotAllowedHttpException $e, $request) {
+            return ResponsesBody::responseError('No encontrado', 404, []);
         });
     }
 }

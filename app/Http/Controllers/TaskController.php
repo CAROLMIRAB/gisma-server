@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ResponsesBody;
+use App\Classes\ResponsesBody;
 use App\Repositories\TaskRepo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class TaskController extends Controller
 {
@@ -51,8 +52,16 @@ class TaskController extends Controller
     public function create(Request $request)
     {
         $description = $request->description;
+        $validator = Validator::make($request->all(), ['description' => 'required'], [
+            'description.required' => 'La descripción no fué agregada'
+        ]);
+
+        if ($validator->fails()) {
+            return ResponsesBody::responseError('Error de validación', 404, $validator->errors());
+        }
+
         $task = $this->taskRepo->store($description);
-        $response = ResponsesBody::responseSuccess("Todas las tareas", 201, []);
+        $response = ResponsesBody::responseSuccess("Guardaste la tarea de forma exitosa", 201, $task);
         return $response;
     }
 
@@ -68,6 +77,13 @@ class TaskController extends Controller
     public function update($id, Request $request)
     {
         $description = $request->description;
+        $validator = Validator::make($request->all(), ['description' => 'required'], [
+            'description.required' => 'La descripción no fué agregada'
+        ]);
+
+        if ($validator->fails()) {
+            return ResponsesBody::responseError('Error de validación', 404, $validator->errors());
+        }
         $task = $this->taskRepo->update($id, $description);
         $response = ResponsesBody::responseSuccess("La tarea ha sido actualizada", 200, []);
         return $response;
@@ -85,6 +101,6 @@ class TaskController extends Controller
     {
         $task = $this->taskRepo->delete($id);
         $response = ResponsesBody::responseSuccess("La tarea ha sido eliminada", 204, []);
-        return response()->json($response, 200);
+        return $response;
     }
 }
