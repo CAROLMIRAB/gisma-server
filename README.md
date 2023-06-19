@@ -1,66 +1,89 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+````markdown
+# Gisma CRUD - Readme
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Este es un archivo Readme para configurar y comenzar a trabajar con GISMA CRUD. Proporcionará una guía básica para configurar el entorno de desarrollo y comenzar a construir aplicaciones web con Laravel.
 
-## About Laravel
+## Requisitos previos
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+-   PHP 8.x instalado en su sistema.
+-   Composer instalado en su sistema.
+-   Un servidor web (por ejemplo, Apache o Nginx) configurado para ejecutar aplicaciones Laravel.
+-   Base de datos PostgreSQL
 
--   [Simple, fast routing engine](https://laravel.com/docs/routing).
--   [Powerful dependency injection container](https://laravel.com/docs/container).
--   Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
--   Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
--   Database agnostic [schema migrations](https://laravel.com/docs/migrations).
--   [Robust background job processing](https://laravel.com/docs/queues).
--   [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Configuración del proyecto
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+1. Clonar el repositorio de Laravel 9:
 
-## Learning Laravel
+```shell
+git clone https://github.com/CAROLMIRAB/gisma-server.git
+```
+````
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+2. Ingresar al directorio del proyecto:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+```shell
+cd gisma-server
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+3. Instalar las dependencias utilizando Composer:
 
-## Laravel Sponsors
+```shell
+composer install
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Configuración de entorno
 
-### Premium Partners
+1. Copiar el archivo `.env.example` y renombrarlo como `.env`:
 
--   **[Vehikl](https://vehikl.com/)**
--   **[Tighten Co.](https://tighten.co)**
--   **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
--   **[64 Robots](https://64robots.com)**
--   **[Cubet Techno Labs](https://cubettech.com)**
--   **[Cyber-Duck](https://cyber-duck.co.uk)**
--   **[Many](https://www.many.co.uk)**
--   **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
--   **[DevSquad](https://devsquad.com)**
--   **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
--   **[OP.GG](https://op.gg)**
--   **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
--   **[Lendio](https://lendio.com)**
+```shell
+cp .env.example .env
+```
 
-## Contributing
+2. Generar la clave de aplicación:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```shell
+php artisan key:generate
+```
 
-## Code of Conduct
+3. Configurar la conexión de base de datos en el archivo `.env`:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```dotenv
+DB_CONNECTION=pgsql
+DB_HOST=127.0.0.1
+DB_PORT=5432
+DB_DATABASE=nombre_basedatos
+DB_USERNAME=nombre_usuario
+DB_PASSWORD=contraseña
+```
 
-## Security Vulnerabilities
+4. Ejecutar las migraciones para crear las tablas de la base de datos:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```shell
+php artisan migrate
+```
 
-## License
+## Servidor de desarrollo
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. Iniciar el servidor de desarrollo de Laravel:
+
+```shell
+php artisan serve
+```
+
+2. Acceder a la aplicación en su navegador web en la siguiente URL: `http://localhost:8000`.
+
+## Documentación oficial
+
+Para obtener más información sobre cómo trabajar con Laravel 9, consulte la documentación oficial en [https://laravel.com/docs/9.x](https://laravel.com/docs/9.x).
+
+## Recursos adicionales
+
+-   [Laravel 9 Announcement](https://laravel.com/blog/laravel-9)
+-   [PHP 8 Release Announcement](https://www.php.net/releases/8.0/en.php)
+
+¡Ahora estás listo para comenzar a desarrollar con Laravel 9 y PHP 8!
+
+```
+
+Este es el archivo `Readme.md` completo que puedes utilizar en tu proyecto Laravel 9 con PHP 8. ¡Espero que te sea útil!
+```
