@@ -1,5 +1,4 @@
-````markdown
-# Gisma CRUD - Readme
+## Gisma CRUD - Readme
 
 Este es un archivo Readme para configurar y comenzar a trabajar con GISMA CRUD. Proporcionará una guía básica para configurar el entorno de desarrollo y comenzar a construir aplicaciones web con Laravel.
 
@@ -17,6 +16,7 @@ Este es un archivo Readme para configurar y comenzar a trabajar con GISMA CRUD. 
 ```shell
 git clone https://github.com/CAROLMIRAB/gisma-server.git
 ```
+
 ````
 
 2. Ingresar al directorio del proyecto:
@@ -87,3 +87,4 @@ Para obtener más información sobre cómo trabajar con Laravel 9, consulte la d
 
 Este es el archivo `Readme.md` completo que puedes utilizar en tu proyecto Laravel 9 con PHP 8. ¡Espero que te sea útil!
 ```
+````
