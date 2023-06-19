@@ -78,14 +78,3 @@ Para obtener más información sobre cómo trabajar con Laravel 9, consulte la d
 
 -   [Laravel 9 Announcement](https://laravel.com/blog/laravel-9)
 -   [PHP 8 Release Announcement](https://www.php.net/releases/8.0/en.php)
-
-¡Ahora estás listo para comenzar a desarrollar con Laravel 9 y PHP 8!
-
-```
-
-Este es el archivo `Readme.md` completo que puedes utilizar en tu proyecto Laravel 9 con PHP 8. ¡Espero que te sea útil!
-```
-
-```
-
-```
